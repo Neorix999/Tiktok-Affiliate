@@ -1,0 +1,213 @@
+<style>
+  :root{
+    --ground:#FBF9FC; --surface:#FFFFFF; --ink:#241B2E; --muted:#6E6480;
+    --accent:#7A3EA3; --accent-ink:#5A2D7D; --rose:#C86B8E;
+    --line:#E9E0F0; --shadow:0 1px 2px rgba(36,27,46,.06),0 8px 24px rgba(36,27,46,.05);
+    --max:64rem;
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --ground:#141019; --surface:#1E1729; --ink:#F1EAF6; --muted:#A99FBB;
+    --accent:#C79BE6; --accent-ink:#D9BFEF; --rose:#E39CB8;
+    --line:#332941; --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+  }}
+  :root[data-theme="dark"]{
+    --ground:#141019; --surface:#1E1729; --ink:#F1EAF6; --muted:#A99FBB;
+    --accent:#C79BE6; --accent-ink:#D9BFEF; --rose:#E39CB8;
+    --line:#332941; --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ground);color:var(--ink);
+    font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.15;
+    text-wrap:balance;font-weight:600;color:var(--ink);}
+  .eyebrow{font-family:-apple-system,"Segoe UI",sans-serif;text-transform:uppercase;
+    letter-spacing:.16em;font-size:12px;font-weight:700;color:var(--accent);}
+  a{color:var(--accent-ink);}
+  .btn{display:inline-block;background:var(--accent);color:#fff;text-decoration:none;
+    font-weight:600;padding:14px 26px;border-radius:10px;box-shadow:var(--shadow);
+    font-family:-apple-system,"Segoe UI",sans-serif;}
+  .btn.ghost{background:transparent;color:var(--accent-ink);border:1.5px solid var(--line);box-shadow:none;}
+
+  /* Hero */
+  header{padding:84px 0 56px;border-bottom:1px solid var(--line);}
+  header h1{font-size:clamp(34px,5.4vw,58px);margin:14px 0 18px;}
+  header p.lede{font-size:clamp(18px,2.3vw,22px);color:var(--muted);max-width:40ch;margin:0 0 30px;}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
+  .cta-note{font-size:14px;color:var(--muted);}
+
+  section{padding:56px 0;border-bottom:1px solid var(--line);}
+  section h2{font-size:clamp(26px,3.4vw,36px);margin:0 0 8px;}
+  section .sub{color:var(--muted);margin:0 0 28px;max-width:52ch;}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+  @media(max-width:720px){.two{grid-template-columns:1fr;}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:26px;box-shadow:var(--shadow);}
+  .card h3{font-size:22px;margin:0 0 4px;}
+  .card .tag{font-family:-apple-system,sans-serif;font-size:12px;font-weight:700;
+    text-transform:uppercase;letter-spacing:.1em;color:var(--rose);}
+  .card ul{margin:14px 0 0;padding-left:18px;color:var(--ink);}
+  .card li{margin:7px 0;}
+  .price{font-family:Georgia,serif;font-size:30px;color:var(--accent-ink);margin-top:16px;}
+
+  /* Ladder */
+  .ladder{display:flex;flex-direction:column;gap:10px;}
+  .rung{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:baseline;
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 22px;}
+  .rung .lvl{font-family:Georgia,serif;font-size:18px;color:var(--accent);min-width:96px;}
+  .rung .desc small{display:block;color:var(--muted);font-size:14px;}
+  .rung .amt{font-family:Georgia,serif;font-size:22px;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .rung.feature{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset,var(--shadow);}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  @media(max-width:720px){.steps{grid-template-columns:1fr 1fr;}}
+  .step{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;}
+  .step .n{font-family:Georgia,serif;color:var(--rose);font-size:15px;}
+  .step h4{margin:6px 0 4px;font-size:16px;}
+  .step p{margin:0;font-size:14px;color:var(--muted);}
+
+  .honest{background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:26px;}
+  .honest li{margin:8px 0;}
+
+  .faq dt{font-weight:700;margin-top:18px;}
+  .faq dd{margin:4px 0 0;color:var(--muted);}
+
+  footer{padding:44px 0 64px;color:var(--muted);font-size:14px;}
+  .disc{background:var(--surface);border:1px solid var(--line);border-radius:10px;
+    padding:14px 18px;margin-bottom:20px;font-size:13px;}
+  .proof{color:var(--rose);font-weight:600;}
+</style>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">Content-to-cash for wellness creators</div>
+    <h1>Turn trending wellness products into videos that actually sell — on a system, not on willpower.</h1>
+    <p class="lede">Two products that fit together: one teaches you to make content that doesn't look AI-made, the other automates the affiliate machine around it.</p>
+    <div class="cta-row">
+      <a class="btn" href="#get">Get the bundle — $127</a>
+      <a class="btn ghost" href="#ladder">See what's inside</a>
+    </div>
+    <p class="cta-note">Or start with the $37 Blueprint. Comment <b>LINK</b> on any of my posts and I'll DM it to you.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">The problem</div>
+    <h2>You don't have a content problem. You have a system problem.</h2>
+    <p class="sub">Posting is a daily decision you eventually lose. Products get picked at random. The link never gets clicked. And half your clips look like a different account made them. None of that is a motivation issue — it's the absence of a repeatable system.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">What you get</div>
+    <h2>Two products. They don't overlap.</h2>
+    <p class="sub">One is the skill. One is the machine. Each solves the other's next problem — you never buy the same thing twice.</p>
+    <div class="two">
+      <div class="card">
+        <div class="tag">The method</div>
+        <h3>Stock Stack</h3>
+        <p>Teaches you to <b>make</b> content that looks art-directed, not AI-generated — a locked 4-layer method, one prompt formula, a cheap 4-pass batch workflow, and the credit discipline that keeps it affordable.</p>
+        <ul>
+          <li>Niche-agnostic creative skill you keep forever</li>
+          <li>Consistent look across every post</li>
+          <li>A month of assets in one afternoon</li>
+        </ul>
+        <div class="price">$97</div>
+      </div>
+      <div class="card">
+        <div class="tag">The machine</div>
+        <h3>Reel Engine</h3>
+        <p>An automated affiliate system for the women's wellness niche: six agents research → pick → film → caption → post, with <b>a human approval gate at every step</b> so nothing goes out without your yes.</p>
+        <ul>
+          <li>Live control panel (Airtable) + optional app</li>
+          <li>Posts to Instagram and TikTok</li>
+          <li>#ad compliance built in, not bolted on</li>
+        </ul>
+        <div class="price">from $37</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="ladder">
+  <div class="wrap">
+    <div class="eyebrow">The ladder</div>
+    <h2>Start where you are.</h2>
+    <p class="sub">Each rung does more of the work for you than the last.</p>
+    <div class="ladder">
+      <div class="rung"><span class="lvl">Blueprint</span><span class="desc">Reel Engine, as a PDF — the full lineup + copy-paste prompts<small>The map. Run it by hand.</small></span><span class="amt">$37</span></div>
+      <div class="rung"><span class="lvl">Method</span><span class="desc">Stock Stack — the creative skill it all sits on<small>Make content that sells.</small></span><span class="amt">$97</span></div>
+      <div class="rung feature"><span class="lvl">Bundle</span><span class="desc">Both, together — the skill and the system<small>Where most people start.</small></span><span class="amt">$127</span></div>
+      <div class="rung"><span class="lvl">App</span><span class="desc">Reel Engine as software — it runs the pipeline for you<small>Log in, approve, publish.</small></span><span class="amt">$79/mo</span></div>
+      <div class="rung"><span class="lvl">Done-for-you</span><span class="desc">I run the whole thing on your accounts<small>You just approve.</small></span><span class="amt">$1k+/mo</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">How the machine works</div>
+    <h2>Research to posted, with you in control.</h2>
+    <p class="sub">Six agents, four approval gates. You approve products, clips, captions, and the final post before anything goes live.</p>
+    <div class="steps">
+      <div class="step"><div class="n">Find</div><h4>Research + pick</h4><p>Trends in, 3 products out. You approve and add the link.</p></div>
+      <div class="step"><div class="n">Make</div><h4>Film + caption</h4><p>Vertical clip + hook, caption, #ad. You approve both.</p></div>
+      <div class="step"><div class="n">Post</div><h4>IG + TikTok</h4><p>Instagram via scheduler, TikTok direct. Final go is yours.</p></div>
+      <div class="step"><div class="n">Learn</div><h4>Read + repeat</h4><p>What worked feeds next week. It gets sharper each cycle.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="eyebrow">Straight talk</div>
+    <h2>Who this isn't for.</h2>
+    <div class="honest">
+      <ul>
+        <li><b>Not for anyone without an affiliate offer or link.</b> Content multiplies an offer — it doesn't replace one. If you have nothing to link to, fix that first.</li>
+        <li><b>Not a "get rich" button.</b> It removes the busywork and keeps you consistent. It does not guarantee sales, and anyone who promises that is lying to you.</li>
+        <li><b>Not fully hands-off.</b> You approve at four points on purpose — so nothing off-brand or non-compliant ever posts under your name.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="get">
+  <div class="wrap">
+    <div class="eyebrow">How to get it</div>
+    <h2>Comment <span style="color:var(--accent)">LINK</span> — I'll DM it to you.</h2>
+    <p class="sub">On any of my posts, comment the word and you'll get a direct message with the checkout. Or grab the bundle now.</p>
+    <div class="cta-row">
+      <a class="btn" href="#">Get the bundle — $127</a>
+      <a class="btn ghost" href="#">Just the $37 Blueprint</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap faq">
+    <div class="eyebrow">Questions</div>
+    <h2>Before you ask.</h2>
+    <dl>
+      <dt>Do I need both?</dt>
+      <dd>No. The Blueprint runs on its own. The Stock Stack makes your content better. The bundle is just the cheaper way to get both.</dd>
+      <dt>Will this work for my niche?</dt>
+      <dd>The Stock Stack method is niche-agnostic. Reel Engine is tuned for women's health/wellness/fitness — the niche it's built and demoed on.</dd>
+      <dt>Can it post to TikTok?</dt>
+      <dd>Yes — through Higgsfield's direct TikTok publishing (or a manual upload). Instagram runs through a scheduler. They're two separate rails, and the system knows the difference.</dd>
+      <dt>What does it cost to run?</dt>
+      <dd>Generation credits (Higgsfield) and your scheduler. The method includes a whole chapter on keeping those costs low.</dd>
+    </dl>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="disc">Affiliate/ad disclosure: some links may be affiliate links, meaning I may earn a commission at no extra cost to you. This system is a tool — results depend on your offer, your effort, and your market. <span class="proof">[Add one real result here once you have it — e.g. "My last 30 posts came from 3 afternoons." Never invent numbers.]</span></div>
+    <p>Reel Engine × Stock Stack — a content-to-cash system for wellness creators.</p>
+  </div>
+</footer>

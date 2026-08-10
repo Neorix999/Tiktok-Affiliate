@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reel Engine — The Stack Blueprint</title>
+<style>
+  @page { size: Letter; margin: 14mm 15mm; }
+  * { box-sizing: border-box; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+         color: #2b2440; line-height: 1.5; font-size: 10.5pt; margin: 0; }
+  h1,h2,h3 { line-height: 1.2; color: #1d1633; }
+  h2 { font-size: 15pt; margin: 0 0 6px; border-bottom: 2px solid #eadff2; padding-bottom: 4px; }
+  h3 { font-size: 11.5pt; margin: 12px 0 3px; color: #7a3ea3; }
+  p { margin: 4px 0; }
+  small { color: #6b6480; }
+  .section { page-break-inside: avoid; margin-bottom: 16px; }
+  .page-break { page-break-before: always; }
+  code, pre { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 8.7pt; }
+  pre { background: #f6f1fb; border: 1px solid #e6d9f2; border-radius: 6px;
+        padding: 9px 11px; white-space: pre-wrap; color: #3a2f52; page-break-inside: avoid; }
+  .pill { display:inline-block; background:#f3e9fb; color:#7a3ea3; border-radius: 20px;
+          padding: 1px 10px; font-size: 8.5pt; font-weight: 600; margin-right: 4px; }
+  .flow { background:#faf7fe; border:1px solid #eadff2; border-radius:8px; padding:10px 12px;
+          font-family:"SF Mono",Menlo,monospace; font-size:8.6pt; color:#4a3d68; white-space:pre-wrap; }
+  table { width:100%; border-collapse: collapse; margin-top:6px; font-size:9.3pt; }
+  th,td { text-align:left; padding:5px 8px; border-bottom:1px solid #eee4f5; vertical-align:top; }
+  th { background:#f7f0fc; color:#5a2d7d; font-weight:600; }
+  .gate { background:#fff4f7; border-left:3px solid #e06a92; padding:6px 10px; margin:5px 0; border-radius:0 6px 6px 0; }
+  ul { margin:4px 0 4px 0; padding-left:18px; }
+  li { margin:2px 0; }
+  .cover { text-align:center; padding: 40mm 0 10mm; page-break-after: always; }
+  .cover .brand { font-size: 34pt; font-weight: 800; color:#7a3ea3; letter-spacing:-1px; }
+  .cover .sub { font-size: 14pt; color:#4a3d68; margin-top:6px; }
+  .cover .tag { margin-top: 22px; font-size: 11pt; color:#6b6480; max-width: 400px; margin-left:auto; margin-right:auto; }
+  .cover .badge { margin-top: 30px; }
+  .foot { text-align:center; color:#9a92ad; font-size:8pt; margin-top:10px; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="brand">REEL ENGINE</div>
+  <div class="sub">The Stack Blueprint</div>
+  <div class="tag">The exact human-in-the-loop AI system for turning trending
+  wellness products into TikTok + Instagram affiliate videos — agents, prompts,
+  and gates, ready to copy.</div>
+  <div class="badge"><span class="pill">6 AGENTS</span><span class="pill">4 HUMAN GATES</span><span class="pill">TIKTOK + IG</span><span class="pill">COPY-PASTE PROMPTS</span></div>
+  <div class="foot" style="margin-top:40mm">Women's health · wellness · fitness niche &nbsp;|&nbsp; v1</div>
+</div>
+
+<div class="section">
+<h2>What you're holding</h2>
+<p>A complete, done-thinking-for-you content system. It runs like a small AI
+team: one agent researches trends, one picks products, one makes the video, one
+writes the copy, one posts it, one reads the results — and <b>you approve at 4
+points</b> so nothing goes out without your say. This document gives you the
+whole lineup <b>and the actual prompts</b> so you can run it today.</p>
+</div>
+
+<div class="section">
+<h2>The stack at a glance</h2>
+<div class="flow">⓪ RESEARCHER → ① SCOUT → [🛑 GATE 1] → ② DIRECTOR → [🛑 GATE 2] → ③ COPYWRITER → [🛑 GATE 3] → ④ PUBLISHER → [🛑 GATE 4] → LIVE → ⑤ ANALYST
+  trend intel   product      you pick   makes 9:16    you ok    caption + IG      you ok    posts to        final    reads
+                picks+link   + link     video clip    the clip  copy + #ad        the copy  TikTok + IG     go       results</div>
+<table>
+<tr><th>Agent</th><th>Job</th><th>Tools it uses</th></tr>
+<tr><td>⓪ Researcher</td><td>Finds what's trending + which sounds/hooks win</td><td>Web research, trending-audio lookup</td></tr>
+<tr><td>① Scout</td><td>Picks specific products that fit + you can get a link for</td><td>Web research</td></tr>
+<tr><td>② Director</td><td>Turns the product into a vertical video</td><td>Higgsfield (image→video or UGC), Canva cover</td></tr>
+<tr><td>③ Copywriter</td><td>Writes the hook, caption, hashtags, link, #ad</td><td>—</td></tr>
+<tr><td>④ Publisher</td><td>Posts to Instagram (Postiz) + TikTok (Higgsfield)</td><td>Postiz, Higgsfield</td></tr>
+<tr><td>⑤ Analyst</td><td>Reports views/clicks and what to double down on</td><td>Analytics</td></tr>
+</table>
+</div>
+
+<div class="section">
+<h2>The 4 human gates (your control)</h2>
+<div class="gate"><b>🛑 Gate 1 — Product selection.</b> Scout proposes; you approve the ones you like and paste in the affiliate link.</div>
+<div class="gate"><b>🛑 Gate 2 — Clip approval.</b> You watch each video before any copy is written.</div>
+<div class="gate"><b>🛑 Gate 3 — Caption + link approval.</b> You approve the wording, hashtags, link, and #ad disclosure.</div>
+<div class="gate"><b>🛑 Gate 4 — Before it posts.</b> Final go/no-go before it publishes.</div>
+<p><small>Mechanically: each product is a row in a tracker; its status can't cross a
+gate until you move it. That's why the system can never post something you didn't approve.</small></p>
+</div>
+
+<div class="section page-break">
+<h2>The agent prompts — copy &amp; paste</h2>
+<p><small>Paste each into your AI tool of choice. They reference a shared niche
+guardrail (women's wellness, no medical claims, always #ad).</small></p>
+
+<h3>⓪ Researcher</h3>
+<pre>You are the Researcher for a women's health/wellness/fitness affiliate channel.
+Find 3-5 trends with real momentum right now. For each, give: Theme, Why Now
+(with a source), Audience, Winning Format, 2-3 Hook patterns, a trending sound
+idea, and suggested product types. Stay in-niche. No medical claims
+(no "cures"/"guaranteed"). Output as a clean list. Do NOT pick specific products.</pre>
+
+<h3>① Scout</h3>
+<pre>You are the Scout. Using the trend briefs, propose 3 specific products that
+(1) are trending, (2) demo well on camera, (3) plausibly have an affiliate link,
+(4) are impulse-priced, (5) fit women's wellness. For each: Product Name,
+Category, Why Trending (with source), and a Suggested Angle. Do NOT invent
+affiliate links — the human adds those. Stop and present for approval.</pre>
+
+<h3>② Director</h3>
+<pre>You are the Director. For each approved product, create a 9:16 vertical short
+(hook in the first 1.5s, 15-25s). Choose: image→video if a product photo exists
+and should be the hero; UGC/creator-style if a "person using it" sells better.
+Keep it TikTok-native. No banned claims in on-screen text. Return the clip +
+which format you used. Stop for approval.</pre>
+
+<h3>③ Copywriter</h3>
+<pre>You are the Copywriter. For the approved clip write: a scroll-stopping Hook, a
+warm benefit-first Caption (big-sister voice, honest), Hashtags (broad + niche +
+product, always include #ad). Build a TikTok caption (link allowed) AND an
+Instagram version (say "link in bio"). Add "not medical advice" on any health
+claim. Confirm the affiliate link + #ad are present. Stop for approval.</pre>
+
+<h3>④ Publisher</h3>
+<pre>You are the Publisher. Only act on approved copy with #ad + link present.
+Instagram: schedule via Postiz with the IG caption + "link in bio".
+TikTok: publish via Higgsfield (connect account) or hand off for manual upload.
+Default to SCHEDULE, then wait for the final human go. Never post without it.</pre>
+
+<h3>⑤ Analyst</h3>
+<pre>You are the Analyst. After posts are live, collect Views, Likes, Link Clicks,
+and any conversions (note when a number is a manual estimate). Flag the top
+performers and weakest angles, and recommend what the next Researcher cycle
+should focus on. Be honest about small sample sizes.</pre>
+</div>
+
+<div class="section page-break">
+<h2>Your control panel (the tracker)</h2>
+<p>One row per product. These are the columns and the status flow that make the
+gates real:</p>
+<p><span class="pill">Proposed</span> → <span class="pill">Approved</span> →
+<span class="pill">Clip Ready</span> → <span class="pill">Clip Approved</span> →
+<span class="pill">Copy Ready</span> → <span class="pill">Copy Approved</span> →
+<span class="pill">Scheduled</span> → <span class="pill">Posted</span></p>
+<p><small>Core columns: Product Name, Status, Category, Why Trending, Affiliate Link,
+Product Image, Clip URL, Hook, Caption, IG Short Copy, Hashtags, #ad OK, Target
+Platforms, Scheduled Time, Views, Clicks. (Full schema included with the kit.)</small></p>
+</div>
+
+<div class="section">
+<h2>3 plug-and-play IG viral scripts</h2>
+<h3>1 · "3 things I stopped doing"</h3>
+<p><b>Hook:</b> "3 things I stopped doing that fixed my 2pm energy crash 👇" —
+list 3 swaps, product is #2, honest payoff. <b>Caption ends:</b> grab it 👉 [link] #ad</p>
+<h3>2 · "GRWM routine"</h3>
+<p><b>Hook:</b> "GRWM but it's my 5-minute morning wellness routine that actually
+stuck ✨" — product is step one, show the month-later result. <b>CTA:</b> "Save this 📌" + link in bio.</p>
+<h3>3 · "TikTok made me buy it"</h3>
+<p><b>Hook:</b> "Okay the internet was right about this one… 👀" — demo the #1 use,
+name the objection, show daily use, drop the price. <b>Caption ends:</b> here if you want it 👉 [link] #ad</p>
+</div>
+
+<div class="section">
+<h2>Setup checklist</h2>
+<ul>
+<li>☐ Set up the tracker (template columns above)</li>
+<li>☐ Connect Instagram (Postiz) &amp; TikTok (Higgsfield or manual)</li>
+<li>☐ Have your affiliate links ready (Amazon Associates / TikTok Shop / brand programs)</li>
+<li>☐ Run Researcher → Scout, approve 3 products (Gate 1)</li>
+<li>☐ Make clips → approve (Gate 2) → write copy → approve (Gate 3)</li>
+<li>☐ Schedule → final go (Gate 4) → live</li>
+</ul>
+</div>
+
+<div class="section">
+<h2>The one rule that keeps you safe</h2>
+<p><b>Every post carries #ad</b> (or a clear affiliate disclosure), and you never
+state or imply a product "cures," "guarantees," or "treats" anything. Use "may
+support" and personal-experience framing. This keeps you inside FTC + platform rules.</p>
+</div>
+
+<div class="foot">Reel Engine — The Stack Blueprint · You may use this system for your own brand and clients. Do not resell this document as-is.</div>
+
+</body>
+</html>

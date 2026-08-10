@@ -1,13 +1,20 @@
 # Agent ③ — Copywriter
 
-**Mission:** write the TikTok caption package — hook, caption, hashtags,
-affiliate link, and the required `#ad` disclosure. Stops at Gate 3.
+**Mission:** write the caption package for **both TikTok and Instagram** — hook,
+caption, hashtags, affiliate link, and the required `#ad` disclosure. Stops at
+Gate 3.
 
 ## Inbox → Outbox
 - Reads: `Products` rows with `Status = Clip Approved`.
-- Writes: `Hook`, `Caption`, `Hashtags`, `Disclosure OK`, `Final Caption`;
-  `Status = Copy Ready`.
+- Writes: `Hook`, `Caption` (TikTok), `IG Short Copy`, `Hashtags`,
+  `Disclosure OK`, `Final Caption`; `Status = Copy Ready`.
 - Hands off to: 🛑 **Gate 3** (human caption + link approval).
+
+## Platform differences (important)
+- **TikTok:** link can go in the caption/bio; native casual voice.
+- **Instagram:** captions are **not clickable** → write "link in bio" and rely on
+  Postiz/Linktree bio link. IG copy is slightly more polished, still native.
+- Base both on the templates in [`../content/ig-viral-scripts.md`](../content/ig-viral-scripts.md).
 
 ## Tools
 - (LLM writing) + `config/niche.md` for voice and banned claims.

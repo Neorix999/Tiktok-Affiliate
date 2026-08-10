@@ -1,101 +1,94 @@
-# TikTok Affiliate Agent System
+# Reel Engine — TikTok + IG Affiliate Agent Stack
 
-An orchestrated, **human-in-the-loop** content engine that turns trending
+A packaged, **human-in-the-loop** content engine that turns trending
 health / wellness / fitness / women-niche affiliate products into published
-TikTok clips — with a human approval gate at every stage.
+**TikTok and Instagram** short-form videos — with a human approval gate at every
+stage, orchestrated by **Hermes**.
 
 Niche focus: **women's health, wellness & fitness.**
+Ships in three forms (see [`docs/PRODUCT.md`](docs/PRODUCT.md)):
+**① packaged repo · ② hosted Base44 app · ③ productized service kit.**
+Built **multi-tenant** — run it for your own brand or resell it to clients.
 
 ---
 
-## The Lineup
-
-Five agents run as a pipeline. Between each stage there is a **🛑 human
-check-in gate** — nothing advances until you approve.
+## The Lineup — 6 agents, 4 human gates, 1 orchestrator
 
 ```
-                 ┌─────────────────────────────────────────────────────────┐
-                 │              AIRTABLE  =  the control panel               │
-                 │   every product is one row; its Status drives the flow    │
-                 └─────────────────────────────────────────────────────────┘
+   HERMES  (orchestrator / runtime — runs agents, drives the state machine,
+            schedules cycles, routes the 4 gate notifications to the human)
+   ────────────────────────────────────────────────────────────────────────
+                 ┌──────────────────────────────────────────────┐
+                 │      AIRTABLE = control panel / state store    │
+                 └──────────────────────────────────────────────┘
 
-  ①  SCOUT ─────────▶ 🛑 GATE 1 ─────▶ ②  DIRECTOR ─────▶ 🛑 GATE 2 ─────▶
-  web-researches       Product          builds the clip     Clip
-  trending picks       selection        (Higgsfield)        approval
-  (health/fitness      + you add
-   /women niche)       affiliate link
-
-  ③  COPYWRITER ────▶ 🛑 GATE 3 ─────▶ ④  PUBLISHER ────▶ 🛑 GATE 4 ─────▶  LIVE
-  hook + caption       Caption &        schedules to        Final
-  + hashtags +         link             TikTok              approval
-  affiliate link +     approval         (Postiz / Higgsfield) before it posts
-  #ad disclosure
-
-  ⑤  ANALYST  (optional, after posting) — pulls performance, feeds next cycle.
+ ⓪ RESEARCHER ─▶ ① SCOUT ─▶ 🛑G1 ─▶ ② DIRECTOR ─▶ 🛑G2 ─▶ ③ COPYWRITER ─▶ 🛑G3 ─▶ ④ PUBLISHER ─▶ 🛑G4 ─▶ LIVE ─▶ ⑤ ANALYST
+   trend &        product     pick    Higgsfield     clip    caption + IG      copy    Postiz →         final    TikTok
+   audience       picks +      prod.   clips (img2vid  ok      short copy +      ok      TikTok + IG      go       + IG
+   intel          links               / UGC) + Canva          link + #ad                + Canva covers
 ```
 
-| # | Agent | Does | Tools | Writes status |
-|---|-------|------|-------|---------------|
-| ① | **Scout** | Finds trending in-niche products, proposes candidates | WebSearch / WebFetch | `Proposed` |
-| ② | **Director** | Turns the approved product into a vertical clip | Higgsfield (image→video **or** UGC ad) | `Clip Ready` |
-| ③ | **Copywriter** | Writes hook, caption, hashtags, inserts affiliate link + disclosure | (LLM) | `Copy Ready` |
-| ④ | **Publisher** | Schedules / posts the clip with the link | Postiz + Higgsfield TikTok | `Scheduled` |
-| ⑤ | **Analyst** | Reports views / clicks / conversions | Higgsfield virality, TikTok analytics | `Posted` → metrics |
+| # | Agent | Does | Key tools | Status it writes |
+|---|-------|------|-----------|------------------|
+| ⓪ | **Researcher** | Trend/audience/sound intel → briefs | WebSearch, Higgsfield `tiktok_music_trending`, `virality_predictor` | `Trend Briefs: New` |
+| ① | **Scout** | In-niche product picks from briefs | WebSearch / WebFetch | `Proposed` |
+| ② | **Director** | Product → 9:16 clip + Canva cover | Higgsfield (img2vid / UGC), Canva | `Clip Ready` |
+| ③ | **Copywriter** | TikTok caption **+ IG short copy** + link + `#ad` | LLM | `Copy Ready` |
+| ④ | **Publisher** | Post to **TikTok + IG** | Postiz, Canva | `Scheduled`→`Posted` |
+| ⑤ | **Analyst** | Views / clicks / conversions | Higgsfield virality, platform stats | metrics |
+
+### The four human check-in gates
+1. **🛑 Product selection** — Scout proposes; you pick + paste the affiliate link.
+2. **🛑 Clip approval** — approve each Higgsfield clip (and Canva cover).
+3. **🛑 Caption + link approval** — approve copy, hashtags, link, `#ad` disclosure.
+4. **🛑 Before it posts** — final go/no-go before TikTok/IG publish.
+
+Each gate = a Status change in Airtable. Hermes pings you; nothing crosses a 🛑
+gate without your yes. Full cycle: [`docs/RUNBOOK.md`](docs/RUNBOOK.md).
 
 ---
 
-## The four human check-in gates
+## What's connected (reality check)
+- ✅ **Hermes** — orchestrator/runtime (drives the stack). Adapter: [`docs/ORCHESTRATION_HERMES.md`](docs/ORCHESTRATION_HERMES.md).
+- ✅ **Higgsfield** — image + video generation, virality, trending sounds.
+- ✅ **Postiz** — schedules/posts to **TikTok + Instagram** (+ links / short links).
+- ✅ **Canva** — covers, text-overlays, carousels, thumbnails.
+- ✅ **Airtable** — control panel / state machine / approvals.
+- ✅ **Base44** — hosts the optional clickable app (form ②).
+- ⚠️ **No TikTok Shop affiliate API** — Scout finds products; **you supply the
+  affiliate link** at Gate 1.
+- 🔐 **Connect a TikTok + IG account** in Postiz before publishing. See [`docs/SETUP.md`](docs/SETUP.md).
 
-You asked for a check-in at every hand-off. Here they are:
-
-1. **🛑 Product selection** — Scout proposes; you pick which products advance
-   and paste in the real affiliate link. *(Nothing gets produced without your
-   yes.)*
-2. **🛑 Clip approval** — you watch each Higgsfield clip before any copy is written.
-3. **🛑 Caption + link approval** — you approve the wording, hashtags, and that
-   the affiliate link + `#ad` disclosure are correct.
-4. **🛑 Before it posts** — final go/no-go; the Publisher only schedules or goes
-   live after your last yes.
-
-Each gate is just a Status change in Airtable (or a "yes" to me in chat). See
-[`docs/RUNBOOK.md`](docs/RUNBOOK.md) for the exact click-by-click cycle.
+> ⚖️ Every post carries `#ad` / affiliate disclosure and follows FTC + platform
+> affiliate rules. Enforced at Copywriter, re-checked at Gate 3.
 
 ---
 
 ## Repo map
-
 ```
-README.md                  ← you are here (the lineup)
+README.md                      ← the lineup (this file)
 docs/
-  ARCHITECTURE.md          ← how the pieces fit, data flow, tool reality-check
-  RUNBOOK.md               ← the operating cycle + the 4 gates, step by step
-  AIRTABLE_SCHEMA.md       ← the control-panel data model (tables/fields/status)
-  SETUP.md                 ← one-time connection checklist (what needs your OAuth)
+  ARCHITECTURE.md              ← data flow, state machine, tool map
+  ORCHESTRATION_HERMES.md      ← how Hermes runs the stack (runtime contract)
+  RUNBOOK.md                   ← the operating cycle + 4 gates
+  AIRTABLE_SCHEMA.md           ← control-panel data model (multi-tenant)
+  PRODUCT.md                   ← packaging: 3 ship forms, pricing, onboarding
+  MULTI_TENANT.md              ← running it per-client (agency mode)
+  SETUP.md                     ← one-time connection checklist
 config/
-  niche.md                 ← the niche definition, guardrails, brand voice
+  niche.md                     ← niche, voice, banned claims, hashtags
+orchestration/
+  stack.yaml                   ← agent + gate manifest Hermes runs
 agents/
-  1-scout.md               ← Scout agent spec + prompt
-  2-director.md            ← Director agent spec + prompt
-  3-copywriter.md          ← Copywriter agent spec + prompt
-  4-publisher.md           ← Publisher agent spec + prompt
-  5-analyst.md             ← Analyst agent spec + prompt
+  0-researcher.md  1-scout.md  2-director.md
+  3-copywriter.md  4-publisher.md  5-analyst.md
+content/
+  ig-viral-scripts.md          ← 3 ready-to-shoot IG short-video scripts
 ```
 
----
-
-## Reality check (read this first)
-
-- ✅ **Higgsfield** is connected — image + video generation, and it can publish
-  directly to TikTok (`tiktok_*` tools).
-- ✅ **Postiz** is connected — schedules posts to TikTok and other platforms,
-  supports links + short links.
-- ✅ **Airtable** is connected — used as the control panel / approval board.
-- ⚠️ **There is no direct TikTok Shop affiliate API.** Products are found by the
-  **Scout** agent via web research; **you supply the actual affiliate link** at
-  Gate 1. This is a deliberate design choice, not a limitation we can code away.
-- 🔐 **You must connect a TikTok account** (in Higgsfield and/or Postiz) before
-  the Publisher can post. See [`docs/SETUP.md`](docs/SETUP.md).
-
-> ⚖️ **Compliance:** every post must carry an affiliate/ad disclosure (e.g.
-> `#ad`) and follow TikTok's affiliate + FTC rules. This is enforced at the
-> Copywriter stage and re-checked at Gate 3.
+## Quick start
+1. Connect accounts → [`docs/SETUP.md`](docs/SETUP.md).
+2. Stand up the Airtable base → [`docs/AIRTABLE_SCHEMA.md`](docs/AIRTABLE_SCHEMA.md).
+3. Point Hermes at [`orchestration/stack.yaml`](orchestration/stack.yaml).
+4. Run your first cycle → [`docs/RUNBOOK.md`](docs/RUNBOOK.md).
+5. Selling it? → [`docs/PRODUCT.md`](docs/PRODUCT.md).

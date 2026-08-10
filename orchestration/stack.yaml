@@ -1,0 +1,87 @@
+# Reel Engine — agent stack manifest
+# Hermes (orchestrator/runtime) reads this to run the pipeline.
+# It is tool-agnostic: each agent lists the MCP tools it needs and the Airtable
+# status it consumes/produces. Human gates are first-class stops.
+
+stack:
+  name: reel-engine
+  niche: womens-health-wellness-fitness
+  multi_tenant: true            # every record carries a Tenant/Client
+  control_plane: airtable       # base: "TikTok Affiliate Engine"
+  platforms: [tiktok, instagram]
+
+# ── State machine (Products table) ───────────────────────────────────────────
+states:
+  - Proposed        # Scout output      → GATE 1
+  - Approved        # Director inbox
+  - Clip Ready      # Director output   → GATE 2
+  - Clip Approved   # Copywriter inbox
+  - Copy Ready      # Copywriter output → GATE 3
+  - Copy Approved   # Publisher inbox
+  - Scheduled       # Publisher output  → GATE 4
+  - Posted          # Analyst inbox / done
+  - Rejected        # exited
+
+# ── Agents ───────────────────────────────────────────────────────────────────
+agents:
+  - id: researcher
+    spec: agents/0-researcher.md
+    trigger: {type: schedule, cron: "weekly"}   # or manual / on-demand
+    reads: {table: "Trend Briefs", status: null}
+    writes: {table: "Trend Briefs", status: "New"}
+    tools: [websearch, higgsfield.tiktok_music_trending, higgsfield.virality_predictor, airtable.create]
+    gate_after: none
+
+  - id: scout
+    spec: agents/1-scout.md
+    trigger: {type: after, agent: researcher}
+    reads: {table: "Trend Briefs", status: "New"}
+    writes: {table: "Products", status: "Proposed"}
+    tools: [websearch, webfetch, airtable.create]
+    gate_after: gate_1
+
+  - id: director
+    spec: agents/2-director.md
+    trigger: {type: status, table: "Products", status: "Approved"}
+    reads: {table: "Products", status: "Approved"}
+    writes: {table: "Products", status: "Clip Ready"}
+    tools: [higgsfield.generate_video, higgsfield.marketing_studio, higgsfield.reframe, canva, airtable.update]
+    gate_after: gate_2
+
+  - id: copywriter
+    spec: agents/3-copywriter.md
+    trigger: {type: status, table: "Products", status: "Clip Approved"}
+    reads: {table: "Products", status: "Clip Approved"}
+    writes: {table: "Products", status: "Copy Ready"}
+    tools: [llm, airtable.update]
+    outputs: [tiktok_caption, ig_short_copy]     # writes copy for BOTH platforms
+    gate_after: gate_3
+
+  - id: publisher
+    spec: agents/4-publisher.md
+    trigger: {type: status, table: "Products", status: "Copy Approved"}
+    reads: {table: "Products", status: "Copy Approved"}
+    writes: {table: "Products", status: "Scheduled"}
+    tools: [postiz.schedule, canva, airtable.update]
+    targets: [tiktok, instagram]
+    gate_after: gate_4          # final go before it publishes
+
+  - id: analyst
+    spec: agents/5-analyst.md
+    trigger: {type: after_post, delay: "48h"}
+    reads: {table: "Products", status: "Posted"}
+    writes: {table: "Products", fields: [Views, Likes, Link Clicks, Est. Conversions]}
+    tools: [higgsfield.virality_predictor, postiz.analytics, airtable.update]
+    gate_after: none
+
+# ── Human gates (Hermes stops here and notifies the operator) ────────────────
+gates:
+  gate_1: {name: "Product selection",     inbox_status: "Proposed",   advance_to: "Approved"}
+  gate_2: {name: "Clip approval",          inbox_status: "Clip Ready", advance_to: "Clip Approved"}
+  gate_3: {name: "Caption + link approval",inbox_status: "Copy Ready", advance_to: "Copy Approved"}
+  gate_4: {name: "Before it posts",        inbox_status: "Scheduled",  advance_to: "Posted"}
+
+notifications:
+  # How Hermes reaches the human at each gate. Swap channel as connected.
+  channel: [airtable_view, slack, email]
+  on: [gate_1, gate_2, gate_3, gate_4, error]

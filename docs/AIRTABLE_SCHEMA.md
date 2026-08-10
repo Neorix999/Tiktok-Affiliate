@@ -10,6 +10,7 @@ state machine, plus two small support tables.
 | Field | Type | Written by | Notes |
 |-------|------|-----------|-------|
 | **Product Name** | Single line text | Scout | Primary field |
+| **Tenant/Client** | Single select | — | **Multi-tenant key** — every row scoped to a brand/client |
 | **Status** | Single select | everyone | The state machine — options below |
 | **Category** | Single select | Scout | Wellness / Fitness / Beauty / Supplements / Women's Health / Other |
 | **Why Trending** | Long text | Scout | Evidence + why it fits the niche |
@@ -21,12 +22,15 @@ state machine, plus two small support tables.
 | **Higgsfield Job ID** | Single line text | Director | For traceability |
 | **Clip URL** | URL | Director | The generated 9:16 clip |
 | **Hook** | Single line text | Copywriter | First 1–2 seconds line |
-| **Caption** | Long text | Copywriter | Body |
+| **Caption** | Long text | Copywriter | TikTok body |
+| **IG Short Copy** | Long text | Copywriter | Instagram caption ("link in bio") |
 | **Hashtags** | Long text | Copywriter | Space-separated |
 | **Disclosure OK** | Checkbox | Copywriter | `#ad` / affiliate disclosure present |
 | **Final Caption** | Long text | Copywriter | Caption + hashtags + link, ready to post |
+| **Target Platforms** | Multiple select | Publisher | TikTok / Instagram |
+| **Cover (Canva)** | Attachment/URL | Director/Publisher | Canva cover / text-overlay |
 | **Scheduled Time** | Date/time | Publisher | UTC |
-| **Platform Post ID** | Single line text | Publisher | Postiz/TikTok post id |
+| **Platform Post ID** | Single line text | Publisher | Postiz/TikTok/IG post id |
 | **Post Status** | Single select | Publisher | draft / scheduled / posted / failed |
 | **Views** | Number | Analyst | |
 | **Likes** | Number | Analyst | |
@@ -52,7 +56,21 @@ Order + suggested colors:
 > The four human gates are simply: rows sitting in `Proposed`, `Clip Ready`,
 > `Copy Ready`, and `Scheduled` are waiting on **you**.
 
-## Table 2 — `Niche Rules` (guardrails the agents read)
+## Table 2 — `Trend Briefs` (Researcher output → feeds Scout)
+
+| Field | Type | Written by | Notes |
+|-------|------|-----------|-------|
+| **Theme** | Single line text | Researcher | Primary field, e.g. "magnesium for sleep" |
+| **Tenant/Client** | Single select | — | Multi-tenant key |
+| **Status** | Single select | Researcher/Scout | `New` / `Used` / `Parked` |
+| **Why Now** | Long text | Researcher | Evidence + momentum (cite sources) |
+| **Audience** | Long text | Researcher | Who it hits |
+| **Winning Format** | Single line text | Researcher | e.g. GRWM, "3 things I stopped" |
+| **Hook Patterns** | Long text | Researcher | 2–3 example hooks |
+| **Trending Sound** | Single line text | Researcher | Sound id/name |
+| **Suggested Product Types** | Long text | Researcher | Hand-off hint for Scout |
+
+## Table 3 — `Niche Rules` (guardrails the agents read)
 
 Single-row-ish reference table so agents share one definition of the niche.
 
@@ -64,7 +82,7 @@ Single-row-ish reference table so agents share one definition of the niche.
 
 Seeded from [`config/niche.md`](../config/niche.md).
 
-## Table 3 — `Run Log` (audit trail)
+## Table 4 — `Run Log` (audit trail)
 
 | Field | Type | Notes |
 |-------|------|-------|

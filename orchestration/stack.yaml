@@ -62,8 +62,10 @@ agents:
     trigger: {type: status, table: "Products", status: "Copy Approved"}
     reads: {table: "Products", status: "Copy Approved"}
     writes: {table: "Products", status: "Scheduled"}
-    tools: [postiz.schedule, canva, airtable.update]
-    targets: [tiktok, instagram]
+    tools: [postiz.schedule, higgsfield.tiktok_publish, canva, airtable.update]
+    rails:
+      instagram: postiz            # IG publishes via Postiz
+      tiktok: higgsfield           # TikTok publishes via Higgsfield ONLY (Postiz cannot post TikTok)
     gate_after: gate_4          # final go before it publishes
 
   - id: analyst

@@ -15,16 +15,19 @@ connected, which it is.)*
 ## 2. TikTok posting account  🔐
 Pick at least one publishing path:
 
-**Option A — Higgsfield → TikTok (direct)**
+Publishing runs on **two separate rails** — they use different tools:
+
+**Instagram rail — Postiz**
+- [ ] In Postiz, connect **Instagram**. Confirm it appears in `integrationList`.
+
+**TikTok rail — Higgsfield ONLY**
 - [ ] Connect your TikTok account via Higgsfield (`tiktok_connect`).
 - [ ] Confirm it shows as `active` (`tiktok_accounts`).
+- [ ] (Fallback) Or plan to export the clip and upload to TikTok manually.
 
-**Option B — Postiz (multi-platform scheduler)**
-- [ ] In Postiz, connect the TikTok integration (and any others: IG, etc.).
-- [ ] Confirm it appears in `integrationList`.
-
-> Recommendation: **Postiz** if you want scheduling + multiple platforms;
-> **Higgsfield direct** if you want the tightest clip→post loop. You can use both.
+> ❌ **Postiz cannot post to TikTok on this stack.** Do not try to connect TikTok
+> in Postiz for publishing. IG → Postiz, TikTok → Higgsfield (or manual). They are
+> independent lanes sharing the same approved clip + copy.
 
 ## 3. Higgsfield credits
 - [ ] Confirm you have generation credits (`balance` / `show_plans_and_credits`).

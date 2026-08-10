@@ -30,50 +30,52 @@
     font-family:-apple-system,"Segoe UI",sans-serif;}
   .btn.ghost{background:transparent;color:var(--accent-ink);border:1.5px solid var(--line);box-shadow:none;}
 
-  /* Hero */
   header{padding:84px 0 56px;border-bottom:1px solid var(--line);}
   header h1{font-size:clamp(34px,5.4vw,58px);margin:14px 0 18px;}
-  header p.lede{font-size:clamp(18px,2.3vw,22px);color:var(--muted);max-width:40ch;margin:0 0 30px;}
+  header p.lede{font-size:clamp(18px,2.3vw,22px);color:var(--muted);max-width:44ch;margin:0 0 30px;}
   .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;}
-  .cta-note{font-size:14px;color:var(--muted);}
+  .cta-note{font-size:14px;color:var(--muted);margin-top:14px;}
 
   section{padding:56px 0;border-bottom:1px solid var(--line);}
   section h2{font-size:clamp(26px,3.4vw,36px);margin:0 0 8px;}
-  section .sub{color:var(--muted);margin:0 0 28px;max-width:52ch;}
+  section .sub{color:var(--muted);margin:0 0 28px;max-width:54ch;}
 
-  .two{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-  @media(max-width:720px){.two{grid-template-columns:1fr;}}
-  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;
-    padding:26px;box-shadow:var(--shadow);}
-  .card h3{font-size:22px;margin:0 0 4px;}
-  .card .tag{font-family:-apple-system,sans-serif;font-size:12px;font-weight:700;
-    text-transform:uppercase;letter-spacing:.1em;color:var(--rose);}
-  .card ul{margin:14px 0 0;padding-left:18px;color:var(--ink);}
-  .card li{margin:7px 0;}
-  .price{font-family:Georgia,serif;font-size:30px;color:var(--accent-ink);margin-top:16px;}
+  /* the one system — 4 parts */
+  .parts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  @media(max-width:760px){.parts{grid-template-columns:1fr 1fr;}}
+  .part{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;}
+  .part .k{font-family:-apple-system,sans-serif;font-size:12px;font-weight:700;
+    letter-spacing:.1em;text-transform:uppercase;color:var(--rose);}
+  .part h3{font-size:18px;margin:8px 0 6px;}
+  .part p{margin:0;font-size:14px;color:var(--muted);}
+  .part .gate{display:inline-block;margin-top:12px;font-size:12px;font-weight:600;
+    color:var(--accent-ink);border:1px solid var(--line);border-radius:20px;padding:2px 10px;}
 
-  /* Ladder */
-  .ladder{display:flex;flex-direction:column;gap:10px;}
-  .rung{display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:baseline;
-    background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 22px;}
-  .rung .lvl{font-family:Georgia,serif;font-size:18px;color:var(--accent);min-width:96px;}
-  .rung .desc small{display:block;color:var(--muted);font-size:14px;}
-  .rung .amt{font-family:Georgia,serif;font-size:22px;font-variant-numeric:tabular-nums;white-space:nowrap;}
-  .rung.feature{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset,var(--shadow);}
+  .method{background:var(--surface);border:1px solid var(--accent);border-radius:14px;
+    padding:26px;box-shadow:0 0 0 1px var(--accent) inset,var(--shadow);}
+  .method h3{margin:0 0 6px;font-size:22px;}
+  .method p{margin:0;color:var(--muted);}
 
-  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
-  @media(max-width:720px){.steps{grid-template-columns:1fr 1fr;}}
-  .step{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;}
-  .step .n{font-family:Georgia,serif;color:var(--rose);font-size:15px;}
-  .step h4{margin:6px 0 4px;font-size:16px;}
-  .step p{margin:0;font-size:14px;color:var(--muted);}
+  /* access tiers of the SAME system */
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  @media(max-width:760px){.tiers{grid-template-columns:1fr;}}
+  .tier{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px;
+    display:flex;flex-direction:column;box-shadow:var(--shadow);}
+  .tier.feature{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset,var(--shadow);}
+  .tier .lvl{font-family:-apple-system,sans-serif;text-transform:uppercase;letter-spacing:.1em;
+    font-size:12px;font-weight:700;color:var(--accent);}
+  .tier .price{font-family:Georgia,serif;font-size:30px;margin:8px 0 2px;color:var(--ink);
+    font-variant-numeric:tabular-nums;}
+  .tier .price small{font-size:14px;color:var(--muted);font-family:-apple-system,sans-serif;}
+  .tier p{color:var(--muted);font-size:14px;margin:6px 0 16px;}
+  .tier ul{margin:0 0 20px;padding-left:18px;font-size:14px;}
+  .tier li{margin:6px 0;}
+  .tier .btn{margin-top:auto;text-align:center;}
 
   .honest{background:var(--surface);border:1px dashed var(--line);border-radius:14px;padding:26px;}
   .honest li{margin:8px 0;}
-
   .faq dt{font-weight:700;margin-top:18px;}
   .faq dd{margin:4px 0 0;color:var(--muted);}
-
   footer{padding:44px 0 64px;color:var(--muted);font-size:14px;}
   .disc{background:var(--surface);border:1px solid var(--line);border-radius:10px;
     padding:14px 18px;margin-bottom:20px;font-size:13px;}
@@ -82,14 +84,14 @@
 
 <header>
   <div class="wrap">
-    <div class="eyebrow">Content-to-cash for wellness creators</div>
-    <h1>Turn trending wellness products into videos that actually sell — on a system, not on willpower.</h1>
-    <p class="lede">Two products that fit together: one teaches you to make content that doesn't look AI-made, the other automates the affiliate machine around it.</p>
+    <div class="eyebrow">The wellness content system</div>
+    <h1>The exact system I use to turn wellness products into content that posts itself.</h1>
+    <p class="lede">Research, create, caption, schedule, post — one connected system, with a human approving every step. Not a course. Not a prompt pack. The actual thing I run.</p>
     <div class="cta-row">
-      <a class="btn" href="#get">Get the bundle — $127</a>
-      <a class="btn ghost" href="#ladder">See what's inside</a>
+      <a class="btn" href="#access">Get access</a>
+      <a class="btn ghost" href="#inside">See how it works</a>
     </div>
-    <p class="cta-note">Or start with the $37 Blueprint. Comment <b>LINK</b> on any of my posts and I'll DM it to you.</p>
+    <p class="cta-note">Built for women's health, wellness &amp; fitness affiliate content.</p>
   </div>
 </header>
 
@@ -97,67 +99,73 @@
   <div class="wrap">
     <div class="eyebrow">The problem</div>
     <h2>You don't have a content problem. You have a system problem.</h2>
-    <p class="sub">Posting is a daily decision you eventually lose. Products get picked at random. The link never gets clicked. And half your clips look like a different account made them. None of that is a motivation issue — it's the absence of a repeatable system.</p>
+    <p class="sub">Posting becomes a daily decision you eventually lose. Products get picked at random. The link never gets clicked. Half your clips look like a different account made them. That's not a motivation issue — it's the absence of one repeatable system doing all of it.</p>
+  </div>
+</section>
+
+<section id="inside">
+  <div class="wrap">
+    <div class="eyebrow">One system</div>
+    <h2>Four steps. One flow. You approve each one.</h2>
+    <p class="sub">Everything runs through a single pipeline — from finding the product to the post going live. Nothing is a separate purchase; it's one system with four moving parts.</p>
+    <div class="parts">
+      <div class="part"><div class="k">Step 1</div><h3>Research &amp; pick</h3><p>Trends and in-niche products found for you. You choose which advance and add the affiliate link.</p><span class="gate">You approve</span></div>
+      <div class="part"><div class="k">Step 2</div><h3>Create</h3><p>A vertical clip built from the product — with the consistency method baked in so it looks art-directed, not AI.</p><span class="gate">You approve</span></div>
+      <div class="part"><div class="k">Step 3</div><h3>Caption</h3><p>Hook, caption, hashtags, affiliate link, and the required <b>#ad</b> — written for TikTok and Instagram.</p><span class="gate">You approve</span></div>
+      <div class="part"><div class="k">Step 4</div><h3>Schedule &amp; post</h3><p>Instagram through a scheduler, TikTok direct. It publishes on time.</p><span class="gate">Final go is yours</span></div>
+    </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="eyebrow">What you get</div>
-    <h2>Two products. They don't overlap.</h2>
-    <p class="sub">One is the skill. One is the machine. Each solves the other's next problem — you never buy the same thing twice.</p>
-    <div class="two">
-      <div class="card">
-        <div class="tag">The method</div>
-        <h3>Stock Stack</h3>
-        <p>Teaches you to <b>make</b> content that looks art-directed, not AI-generated — a locked 4-layer method, one prompt formula, a cheap 4-pass batch workflow, and the credit discipline that keeps it affordable.</p>
-        <ul>
-          <li>Niche-agnostic creative skill you keep forever</li>
-          <li>Consistent look across every post</li>
-          <li>A month of assets in one afternoon</li>
-        </ul>
+    <div class="eyebrow">Why the content looks good</div>
+    <div class="method">
+      <h3>The consistency method is built into Step 2 — not sold separately.</h3>
+      <p>The reason most AI content reads as "AI" is that every post is generated from scratch with no fixed variables. This system locks your look — one visual identity, one palette, one lens — so a month of posts looks like one photographer shot them in one afternoon. That method is the quality layer inside Create. You're not buying it twice; it's part of the one system.</p>
+    </div>
+  </div>
+</section>
+
+<section id="access">
+  <div class="wrap">
+    <div class="eyebrow">Get access</div>
+    <h2>One system. Three ways to run it.</h2>
+    <p class="sub">Same system, different amount of it done for you. Start where you are and move up when you're ready.</p>
+    <div class="tiers">
+      <div class="tier">
+        <div class="lvl">Do it yourself</div>
         <div class="price">$97</div>
-      </div>
-      <div class="card">
-        <div class="tag">The machine</div>
-        <h3>Reel Engine</h3>
-        <p>An automated affiliate system for the women's wellness niche: six agents research → pick → film → caption → post, with <b>a human approval gate at every step</b> so nothing goes out without your yes.</p>
+        <p>The full system as a blueprint you run yourself: the lineup, the copy-paste prompts, the tracker template, the posting playbook.</p>
         <ul>
-          <li>Live control panel (Airtable) + optional app</li>
-          <li>Posts to Instagram and TikTok</li>
-          <li>#ad compliance built in, not bolted on</li>
+          <li>Every step + prompt</li>
+          <li>Airtable control-panel template</li>
+          <li>IG + TikTok posting playbook</li>
         </ul>
-        <div class="price">from $37</div>
+        <a class="btn" href="#">Get the blueprint</a>
       </div>
-    </div>
-  </div>
-</section>
-
-<section id="ladder">
-  <div class="wrap">
-    <div class="eyebrow">The ladder</div>
-    <h2>Start where you are.</h2>
-    <p class="sub">Each rung does more of the work for you than the last.</p>
-    <div class="ladder">
-      <div class="rung"><span class="lvl">Blueprint</span><span class="desc">Reel Engine, as a PDF — the full lineup + copy-paste prompts<small>The map. Run it by hand.</small></span><span class="amt">$37</span></div>
-      <div class="rung"><span class="lvl">Method</span><span class="desc">Stock Stack — the creative skill it all sits on<small>Make content that sells.</small></span><span class="amt">$97</span></div>
-      <div class="rung feature"><span class="lvl">Bundle</span><span class="desc">Both, together — the skill and the system<small>Where most people start.</small></span><span class="amt">$127</span></div>
-      <div class="rung"><span class="lvl">App</span><span class="desc">Reel Engine as software — it runs the pipeline for you<small>Log in, approve, publish.</small></span><span class="amt">$79/mo</span></div>
-      <div class="rung"><span class="lvl">Done-for-you</span><span class="desc">I run the whole thing on your accounts<small>You just approve.</small></span><span class="amt">$1k+/mo</span></div>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="eyebrow">How the machine works</div>
-    <h2>Research to posted, with you in control.</h2>
-    <p class="sub">Six agents, four approval gates. You approve products, clips, captions, and the final post before anything goes live.</p>
-    <div class="steps">
-      <div class="step"><div class="n">Find</div><h4>Research + pick</h4><p>Trends in, 3 products out. You approve and add the link.</p></div>
-      <div class="step"><div class="n">Make</div><h4>Film + caption</h4><p>Vertical clip + hook, caption, #ad. You approve both.</p></div>
-      <div class="step"><div class="n">Post</div><h4>IG + TikTok</h4><p>Instagram via scheduler, TikTok direct. Final go is yours.</p></div>
-      <div class="step"><div class="n">Learn</div><h4>Read + repeat</h4><p>What worked feeds next week. It gets sharper each cycle.</p></div>
+      <div class="tier feature">
+        <div class="lvl">Run it in the app</div>
+        <div class="price">$79<small>/mo</small></div>
+        <p>The same system as software — log in, and the pipeline runs. You just approve at each step and hit publish.</p>
+        <ul>
+          <li>Dashboard + the 4 approval gates</li>
+          <li>Your products, clips, and schedule in one place</li>
+          <li>Google login, your data saved</li>
+        </ul>
+        <a class="btn" href="#">Start with the app</a>
+      </div>
+      <div class="tier">
+        <div class="lvl">Done for you</div>
+        <div class="price">from $1k<small>/mo</small></div>
+        <p>I run the whole system on your accounts. You approve the work; I handle everything else.</p>
+        <ul>
+          <li>Research → post, managed</li>
+          <li>You still approve every post</li>
+          <li>Monthly performance review</li>
+        </ul>
+        <a class="btn ghost" href="#">Apply</a>
+      </div>
     </div>
   </div>
 </section>
@@ -168,22 +176,10 @@
     <h2>Who this isn't for.</h2>
     <div class="honest">
       <ul>
-        <li><b>Not for anyone without an affiliate offer or link.</b> Content multiplies an offer — it doesn't replace one. If you have nothing to link to, fix that first.</li>
+        <li><b>Not for anyone without an affiliate offer or link.</b> Content multiplies an offer — it doesn't replace one. No link to promote? Fix that first.</li>
         <li><b>Not a "get rich" button.</b> It removes the busywork and keeps you consistent. It does not guarantee sales, and anyone who promises that is lying to you.</li>
         <li><b>Not fully hands-off.</b> You approve at four points on purpose — so nothing off-brand or non-compliant ever posts under your name.</li>
       </ul>
-    </div>
-  </div>
-</section>
-
-<section id="get">
-  <div class="wrap">
-    <div class="eyebrow">How to get it</div>
-    <h2>Comment <span style="color:var(--accent)">LINK</span> — I'll DM it to you.</h2>
-    <p class="sub">On any of my posts, comment the word and you'll get a direct message with the checkout. Or grab the bundle now.</p>
-    <div class="cta-row">
-      <a class="btn" href="#">Get the bundle — $127</a>
-      <a class="btn ghost" href="#">Just the $37 Blueprint</a>
     </div>
   </div>
 </section>
@@ -193,21 +189,21 @@
     <div class="eyebrow">Questions</div>
     <h2>Before you ask.</h2>
     <dl>
-      <dt>Do I need both?</dt>
-      <dd>No. The Blueprint runs on its own. The Stock Stack makes your content better. The bundle is just the cheaper way to get both.</dd>
-      <dt>Will this work for my niche?</dt>
-      <dd>The Stock Stack method is niche-agnostic. Reel Engine is tuned for women's health/wellness/fitness — the niche it's built and demoed on.</dd>
+      <dt>Is this one thing or a bundle?</dt>
+      <dd>One system. Research, create, caption, schedule, and post all run through a single pipeline. The three prices above are just how much of it is done for you.</dd>
+      <dt>Will it work for my niche?</dt>
+      <dd>It's built and tuned for women's health, wellness, and fitness — the niche it's demoed on. The creative method inside it works anywhere, but the product picks and voice are wellness-first.</dd>
       <dt>Can it post to TikTok?</dt>
-      <dd>Yes — through Higgsfield's direct TikTok publishing (or a manual upload). Instagram runs through a scheduler. They're two separate rails, and the system knows the difference.</dd>
+      <dd>Yes — through Higgsfield's direct TikTok publishing (or a manual upload). Instagram runs through a scheduler. Two separate rails, and the system knows the difference.</dd>
       <dt>What does it cost to run?</dt>
-      <dd>Generation credits (Higgsfield) and your scheduler. The method includes a whole chapter on keeping those costs low.</dd>
+      <dd>Generation credits and your scheduler. Keeping those low is part of the system, not an afterthought.</dd>
     </dl>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="disc">Affiliate/ad disclosure: some links may be affiliate links, meaning I may earn a commission at no extra cost to you. This system is a tool — results depend on your offer, your effort, and your market. <span class="proof">[Add one real result here once you have it — e.g. "My last 30 posts came from 3 afternoons." Never invent numbers.]</span></div>
-    <p>Reel Engine × Stock Stack — a content-to-cash system for wellness creators.</p>
+    <div class="disc">Affiliate/ad disclosure: some links may be affiliate links, meaning I may earn a commission at no extra cost to you. This is a tool — results depend on your offer, your effort, and your market. <span class="proof">[Add one real result here once you have it. Never invent numbers.]</span></div>
+    <p>The wellness content system — research, create, post, schedule, in one place.</p>
   </div>
 </footer>

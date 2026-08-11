@@ -1,49 +1,42 @@
-# Niche definition & guardrails
+# Account Profile & Guardrails
 
-The whole system optimizes for this. Agents read this file (and the mirrored
-`Niche Rules` Airtable table) before acting.
+This system is **niche-agnostic**. It doesn't assume a topic — you point it at an
+account by filling an **Account Profile**. The agents read this file (and the
+mirrored `Niche Rules` Airtable table) before acting.
 
-## Who we serve
-Women interested in **health, wellness, and fitness** — practical, everyday
-self-improvement. Skews approachable and encouraging, not clinical or extreme.
+## The Account Profile (fill one per account/client)
+```
+PLATFORM:  __________  (Instagram / Pinterest / TikTok / a client's)
+OFFER:     __________  (affiliate link / UGC deliverable / client brand / growth)
+VOICE:     __________  (funny / aspirational / clean / expert / big-sister)
+LOOK:      __________  (locked look: light, palette, style — keeps content coherent)
+ASSETS:    __________  (generate fresh / pull from my desktop folder / both)
+RESEARCH:  __________  (what the Researcher hunts: products, keywords, trends, topics)
+```
 
-## Target sub-topics (Scout hunts here)
-- Fitness: home workout gear, resistance bands, activewear, recovery tools
-- Wellness: sleep, stress, hydration, supplements (vitamins, collagen, greens)
-- Women's health: cycle/hormone support, pelvic health, prenatal/postpartum
-- Beauty-adjacent wellness: skincare tools, red-light, gua sha, hair/nail health
-- Nutrition: healthy snacks, protein, meal-prep gadgets
+## Example profiles (the proof set)
+| Account | Platform | Offer | Create route | Researcher hunts |
+|---------|----------|-------|--------------|------------------|
+| Pinterest affiliate | Pinterest | affiliate link | **Canva** pins (2:3) | pin-worthy products + keywords |
+| Quote page | Instagram | growth / bio-link | **Canva** text-on-image | quote themes that resonate |
+| Travel (affiliate + UGC) | IG + TikTok | affiliate + brand collab | **your photos** + Higgsfield | destinations, gear, brand angles |
+| Client organic | client's | client pays you | per client brand | client's topics + calendar |
 
-## What makes a good pick (Scout scoring)
-1. **Trending** — visible momentum on TikTok / social right now.
-2. **Demo-able** — looks good in a short vertical clip.
-3. **Affiliate-available** — you can actually get a commission link.
-4. **Price/impulse fit** — affordable enough for impulse buys.
-5. **On-brand** — fits the encouraging, women-first wellness voice.
+## Universal guardrails (apply to every account)
+- **Always disclose affiliate/paid content** — `#ad` or a clear equivalent, near
+  the top, not buried. FTC-required in the US.
+- **No false or guaranteed claims** — no "guaranteed results/income," no medical
+  or financial promises. Use honest, specific, personal-experience framing.
+- **Right link, right account** — the correct affiliate link for that product, on
+  the correct `Tenant/Client`'s accounts. Never cross-post between clients.
+- **Match platform rules** — each platform's format + policy (e.g. Pinterest links
+  on the pin; IG captions aren't clickable → link in bio).
 
-## Brand voice (Copywriter)
-- Warm, upbeat, "big sister who's tried it" — not preachy, not hypey.
-- Benefit-first, specific, honest. Real talk over marketing gloss.
-- Short punchy hook in the first 1–2 seconds.
-- Emojis: light and tasteful, not spammy.
+## Format standard
+- Video **9:16**, hook in the first ~1.5s.
+- Pins **2:3** vertical with readable overlay text.
+- Feed images **4:5**. Repurpose one asset across ratios rather than regenerating.
 
-## 🚫 Banned / high-risk claims (hard rules — Copywriter + Publisher enforce)
-Never state or imply:
-- "Cures", "treats", "prevents" any disease or condition.
-- "Guaranteed" weight loss / results, or specific medical outcomes.
-- Anything requiring medical authority ("doctor recommended" unless verifiably true).
-- Before/after promises, rapid weight-loss claims, or disordered-eating framing.
-- Claims about supplements not permitted under FTC/advertising rules.
-
-Prefer: "may support", "a lot of people love it for…", "part of my routine",
-personal-experience framing.
-
-## ✅ Required on every post
-- Affiliate/ad disclosure: `#ad` (or clear equivalent) — **non-negotiable**.
-- Vertical **9:16** clip.
-- The correct affiliate link for that exact product.
-
-## Hashtag palette (starting set — tune over time)
-`#wellness #womenshealth #fitnesstok #tiktokmademebuyit #selfcare #healthytok
-#wellnesstok #fittok #ad`
-(Copywriter mixes broad + niche + product-specific tags; always keeps `#ad`.)
+## Two posting rails (never confuse them)
+- **Scheduler = Postiz** → Instagram, Pinterest, Facebook, LinkedIn, X, Threads…
+- **TikTok = Higgsfield only** (or manual upload). Postiz does not post TikTok.

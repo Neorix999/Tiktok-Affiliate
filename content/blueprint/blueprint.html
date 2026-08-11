@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Reel Engine — The Stack Blueprint</title>
+<title>The Content Automation System — SOP</title>
 <style>
   @page { size: Letter; margin: 14mm 15mm; }
   * { box-sizing: border-box; }
@@ -14,209 +14,161 @@
   h3 { font-size: 11.5pt; margin: 12px 0 3px; color: #7a3ea3; }
   p { margin: 4px 0; }
   small { color: #6b6480; }
-  .section { page-break-inside: avoid; margin-bottom: 16px; }
+  .section { page-break-inside: avoid; margin-bottom: 15px; }
   .page-break { page-break-before: always; }
-  code, pre { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 8.7pt; }
+  code, pre { font-family: "SF Mono", Menlo, Consolas, monospace; font-size: 8.6pt; }
   pre { background: #f6f1fb; border: 1px solid #e6d9f2; border-radius: 6px;
         padding: 9px 11px; white-space: pre-wrap; color: #3a2f52; page-break-inside: avoid; }
   .pill { display:inline-block; background:#f3e9fb; color:#7a3ea3; border-radius: 20px;
           padding: 1px 10px; font-size: 8.5pt; font-weight: 600; margin-right: 4px; }
   .flow { background:#faf7fe; border:1px solid #eadff2; border-radius:8px; padding:10px 12px;
-          font-family:"SF Mono",Menlo,monospace; font-size:8.6pt; color:#4a3d68; white-space:pre-wrap; }
-  table { width:100%; border-collapse: collapse; margin-top:6px; font-size:9.3pt; }
+          font-family:"SF Mono",Menlo,monospace; font-size:8.5pt; color:#4a3d68; white-space:pre-wrap; }
+  table { width:100%; border-collapse: collapse; margin-top:6px; font-size:9.2pt; }
   th,td { text-align:left; padding:5px 8px; border-bottom:1px solid #eee4f5; vertical-align:top; }
   th { background:#f7f0fc; color:#5a2d7d; font-weight:600; }
-  .gate { background:#fff4f7; border-left:3px solid #e06a92; padding:6px 10px; margin:5px 0; border-radius:0 6px 6px 0; }
-  ul { margin:4px 0 4px 0; padding-left:18px; }
-  li { margin:2px 0; }
-  .cover { text-align:center; padding: 40mm 0 10mm; page-break-after: always; }
-  .cover .brand { font-size: 34pt; font-weight: 800; color:#7a3ea3; letter-spacing:-1px; }
-  .cover .sub { font-size: 14pt; color:#4a3d68; margin-top:6px; }
-  .cover .tag { margin-top: 22px; font-size: 11pt; color:#6b6480; max-width: 400px; margin-left:auto; margin-right:auto; }
-  .cover .badge { margin-top: 30px; }
+  .step { background:#fbf9fc; border:1px solid #eadff2; border-left:3px solid #7a3ea3;
+          padding:7px 11px; margin:6px 0; border-radius:0 6px 6px 0; page-break-inside:avoid; }
+  .step b { color:#5a2d7d; }
+  .gate { background:#fff4f7; border-left:3px solid #e06a92; padding:5px 10px; margin:4px 0; border-radius:0 6px 6px 0; }
+  ul { margin:4px 0; padding-left:18px; } li { margin:2px 0; }
+  a { color:#7a3ea3; }
+  .cover { text-align:center; padding: 38mm 0 10mm; page-break-after: always; }
+  .cover .brand { font-size: 13pt; letter-spacing:.22em; color:#7a3ea3; text-transform:uppercase; font-weight:700; }
+  .cover .title { font-size: 32pt; font-weight: 800; color:#1d1633; letter-spacing:-1px; margin-top:12px; line-height:1.08; }
+  .cover .sub { font-size: 13pt; color:#4a3d68; margin-top:14px; max-width: 430px; margin-left:auto; margin-right:auto; }
+  .cover .badge { margin-top: 26px; }
   .foot { text-align:center; color:#9a92ad; font-size:8pt; margin-top:10px; }
 </style>
 </head>
 <body>
 
 <div class="cover">
-  <div class="brand">REEL ENGINE</div>
-  <div class="sub">The Stack Blueprint</div>
-  <div class="tag">The exact human-in-the-loop AI system for turning trending
-  wellness products into TikTok + Instagram affiliate videos — agents, prompts,
-  and gates, ready to copy.</div>
-  <div class="badge"><span class="pill">6 AGENTS</span><span class="pill">4 HUMAN GATES</span><span class="pill">TIKTOK + IG</span><span class="pill">COPY-PASTE PROMPTS</span></div>
-  <div class="foot" style="margin-top:40mm">Women's health · wellness · fitness niche &nbsp;|&nbsp; v1</div>
+  <div class="brand">[ Your Brand ]</div>
+  <div class="title">The Content<br>Automation System</div>
+  <div class="sub">One system to research, create, caption, schedule, and post —
+  for any platform, any offer. Set it up once. You approve every post.</div>
+  <div class="badge"><span class="pill">SET UP ONCE (A–G)</span><span class="pill">ANY PLATFORM</span><span class="pill">4 APPROVAL GATES</span></div>
+  <div class="foot" style="margin-top:36mm">Your step-by-step SOP &nbsp;|&nbsp; v2</div>
 </div>
 
 <div class="section">
-<h2>What you're holding</h2>
-<p>A complete, done-thinking-for-you content system. It runs like a small AI
-team: one agent researches trends, one picks products, one makes the video, one
-writes the copy, one posts it, one reads the results — and <b>you approve at 4
-points</b> so nothing goes out without your say. This document gives you the
-whole lineup <b>and the actual prompts</b> so you can run it today.</p>
+<h2>What this is (read first)</h2>
+<p>A repeatable system that runs your content like a small team: it <b>researches</b>
+what to post, <b>creates</b> the visual, <b>writes</b> the caption, <b>schedules</b>
+it, and <b>posts</b> it — while <b>you approve at four points</b> so nothing goes
+out you didn't sign off on. It's not tied to a niche. Set it up once (Part 1),
+then run any account through it (Part 3 shows real examples: Pinterest affiliate,
+a quote page, a travel account, client work).</p>
+<div class="flow">RESEARCH → CREATE → CAPTION → SCHEDULE → POST
+   what to post   Higgsfield/     hook + link    Postiz (IG,     it goes live
+   + the offer    Canva + your    + disclosure   Pinterest…) /   on time
+                  own photos                     Higgsfield(TikTok)</div>
+<div class="gate"><b>The 4 gates you control:</b> ① approve what to post · ② approve the visual · ③ approve the caption + link · ④ final go before it publishes.</div>
+</div>
+
+<div class="section page-break">
+<h2>Part 1 — Set it up once (A → G)</h2>
+
+<div class="step"><b>A. Connect Postiz</b> (your scheduler for Instagram, Pinterest,
+Facebook, LinkedIn, X, etc.). Sign up here:
+<a href="https://postiz.pro/melannie-carranza-iglesias">postiz.pro/melannie-carranza-iglesias</a>.
+Connect each account you post to.</div>
+
+<div class="step"><b>B. Connect Higgsfield</b> — generates and animates visuals, and
+publishes <u>directly to TikTok</u> (Postiz can't post TikTok — this is the TikTok
+rail). <small>[add your Higgsfield affiliate link here]</small></div>
+
+<div class="step"><b>C. Connect Canva</b> — for graphics, text-on-image (quotes),
+Pinterest pins, covers, and overlays. <small>[add your Canva affiliate link here]</small></div>
+
+<div class="step"><b>D. Make your Asset Folder.</b> On your own computer, create one
+folder for the images/clips you want to use — organized in subfolders (e.g.
+<code>/products</code>, <code>/travel-photos</code>, <code>/client-name</code>).
+When you run Claude on your computer (with file access), it <b>reads that folder</b>
+and pulls the right assets into the content. This is how your real photos get used.</div>
+
+<div class="step"><b>E. Set up your Tracker</b> (Airtable). One row per post, moving
+through the statuses. It's your control panel and where you approve. <small>(Template
+provided with this system.)</small></div>
+
+<div class="step"><b>F. Fill your Account Profile.</b> The one thing that makes it
+"yours" — fill these five lines once per account:
+<pre>PLATFORM:   __________  (IG / Pinterest / TikTok / client's)
+OFFER:      __________  (affiliate link / UGC deliverable / client brand)
+VOICE:      __________  (funny / aspirational / clean / expert)
+LOOK:       __________  (your locked look: light, palette, style)
+ASSETS:     __________  (generate fresh / pull from my folder / both)</pre></div>
+
+<div class="step"><b>G. Set your schedule.</b> Pick your slots (e.g. 1/day) and let
+Postiz publish on time. Refill weekly (Part 5).</div>
+</div>
+
+<div class="section page-break">
+<h2>Part 2 — How the content actually gets made</h2>
+<p>The "Create" step, in plain terms. This is what happens after you approve a
+thing to post:</p>
+<div class="flow">Your Asset Folder ──▶ Claude reads what's there
+        │
+        ├─▶ need a NEW visual / animation?  ─▶ HIGGSFIELD (generate or animate → 9:16 / 4:5 / pin)
+        ├─▶ need a GRAPHIC / quote / pin / cover? ─▶ CANVA (text-on-image, layouts)
+        └─▶ have a REAL photo to use?  ─▶ pull it from the folder, enhance/reframe
+                        │
+                        ▼
+             finished asset ─▶ caption + link + #ad ─▶ into the Tracker for your approval</div>
+<p><small>You tell Claude what you want ("make a pin for this product", "animate my
+travel photo", "quote graphic in my style"); it routes to Higgsfield or Canva
+accordingly and pulls from your folder when you point it there.</small></p>
+</div>
+
+<div class="section page-break">
+<h2>Part 3 — The variations (run any account through it)</h2>
+<p>Same system. Only the profile, the research, and the create-route change.</p>
+
+<h3>1 · Pinterest affiliate</h3>
+<table><tr><th>Research</th><th>Create</th><th>Rail</th><th>Offer</th></tr>
+<tr><td>pin-worthy trending products / keywords</td><td><b>Canva</b> vertical pins (2:3), text overlay</td><td>Pinterest via Postiz</td><td>affiliate link on the pin</td></tr></table>
+
+<h3>2 · Quote / faceless IG account</h3>
+<table><tr><th>Research</th><th>Create</th><th>Rail</th><th>Offer</th></tr>
+<tr><td>themes + quote angles that resonate</td><td><b>Canva</b> text-on-image in your locked look</td><td>Instagram via Postiz</td><td>growth / bio-link / affiliate</td></tr></table>
+
+<h3>3 · Travel IG (affiliate + UGC collab)</h3>
+<table><tr><th>Research</th><th>Create</th><th>Rail</th><th>Offer</th></tr>
+<tr><td>destinations, gear, brand angles</td><td><b>Your photos</b> (from folder) + Higgsfield polish/animation</td><td>IG (Postiz) + TikTok (Higgsfield)</td><td>affiliate links + UGC brand deliverables</td></tr></table>
+
+<h3>4 · Client organic posting (done-for-you)</h3>
+<table><tr><th>Research</th><th>Create</th><th>Rail</th><th>Offer</th></tr>
+<tr><td>client's brand, topics, calendar</td><td>Higgsfield/Canva per client brand + client's assets</td><td>client's platforms via Postiz</td><td>the client pays you; they approve</td></tr></table>
+<p><small>Multi-tenant: each client = its own profile + folder + accounts. Never
+mix one client's content onto another's accounts.</small></p>
 </div>
 
 <div class="section">
-<h2>The stack at a glance</h2>
-<div class="flow">⓪ RESEARCHER → ① SCOUT → [🛑 GATE 1] → ② DIRECTOR → [🛑 GATE 2] → ③ COPYWRITER → [🛑 GATE 3] → ④ PUBLISHER → [🛑 GATE 4] → LIVE → ⑤ ANALYST
-  trend intel   product      you pick   makes 9:16    you ok    caption + IG      you ok    posts to        final    reads
-                picks+link   + link     video clip    the clip  copy + #ad        the copy  2 rails ↓       go       results
-
-  PUBLISH SPLITS INTO TWO SEPARATE RAILS →   ┌─ INSTAGRAM ... via Postiz (schedule)
-                                             └─ TIKTOK .... via Higgsfield ONLY (Postiz can't post TikTok)</div>
+<h2>Part 4 — The two posting rails (important)</h2>
+<div class="gate"><b>⚠ TikTok and everything else use different tools.</b></div>
 <table>
-<tr><th>Agent</th><th>Job</th><th>Tools it uses</th></tr>
-<tr><td>⓪ Researcher</td><td>Finds what's trending + which sounds/hooks win</td><td>Web research, trending-audio lookup</td></tr>
-<tr><td>① Scout</td><td>Picks specific products that fit + you can get a link for</td><td>Web research</td></tr>
-<tr><td>② Director</td><td>Turns the product into a vertical video</td><td>Higgsfield (image→video or UGC), Canva cover</td></tr>
-<tr><td>③ Copywriter</td><td>Writes the hook, caption, hashtags, link, #ad</td><td>—</td></tr>
-<tr><td>④ Publisher</td><td>Publishes on <b>two separate rails</b>: Instagram and TikTok (see next page)</td><td>IG → Postiz · TikTok → Higgsfield</td></tr>
-<tr><td>⑤ Analyst</td><td>Reports views/clicks and what to double down on</td><td>Analytics</td></tr>
+<tr><th>Rail</th><th>Tool</th><th>Covers</th></tr>
+<tr><td><b>Scheduler</b></td><td>Postiz</td><td>Instagram, Pinterest, Facebook, LinkedIn, X, Threads…</td></tr>
+<tr><td><b>TikTok</b></td><td><b>Higgsfield only</b> (or manual upload)</td><td>TikTok — Postiz does not post TikTok</td></tr>
 </table>
 </div>
 
 <div class="section">
-<h2>The 4 human gates (your control)</h2>
-<div class="gate"><b>🛑 Gate 1 — Product selection.</b> Scout proposes; you approve the ones you like and paste in the affiliate link.</div>
-<div class="gate"><b>🛑 Gate 2 — Clip approval.</b> You watch each video before any copy is written.</div>
-<div class="gate"><b>🛑 Gate 3 — Caption + link approval.</b> You approve the wording, hashtags, link, and #ad disclosure.</div>
-<div class="gate"><b>🛑 Gate 4 — Before it posts.</b> Final go/no-go before it publishes.</div>
-<p><small>Mechanically: each product is a row in a tracker; its status can't cross a
-gate until you move it. That's why the system can never post something you didn't approve.</small></p>
-</div>
-
-<div class="section page-break">
-<h2>The agent prompts — copy &amp; paste</h2>
-<p><small>Paste each into your AI tool of choice. They reference a shared niche
-guardrail (women's wellness, no medical claims, always #ad).</small></p>
-
-<h3>⓪ Researcher</h3>
-<pre>You are the Researcher for a women's health/wellness/fitness affiliate channel.
-Find 3-5 trends with real momentum right now. For each, give: Theme, Why Now
-(with a source), Audience, Winning Format, 2-3 Hook patterns, a trending sound
-idea, and suggested product types. Stay in-niche. No medical claims
-(no "cures"/"guaranteed"). Output as a clean list. Do NOT pick specific products.</pre>
-
-<h3>① Scout</h3>
-<pre>You are the Scout. Using the trend briefs, propose 3 specific products that
-(1) are trending, (2) demo well on camera, (3) plausibly have an affiliate link,
-(4) are impulse-priced, (5) fit women's wellness. For each: Product Name,
-Category, Why Trending (with source), and a Suggested Angle. Do NOT invent
-affiliate links — the human adds those. Stop and present for approval.</pre>
-
-<h3>② Director</h3>
-<pre>You are the Director. For each approved product, create a 9:16 vertical short
-(hook in the first 1.5s, 15-25s). Choose: image→video if a product photo exists
-and should be the hero; UGC/creator-style if a "person using it" sells better.
-Keep it TikTok-native. No banned claims in on-screen text. Return the clip +
-which format you used. Stop for approval.</pre>
-
-<h3>③ Copywriter</h3>
-<pre>You are the Copywriter. For the approved clip write: a scroll-stopping Hook, a
-warm benefit-first Caption (big-sister voice, honest), Hashtags (broad + niche +
-product, always include #ad). Build a TikTok caption (link allowed) AND an
-Instagram version (say "link in bio"). Add "not medical advice" on any health
-claim. Confirm the affiliate link + #ad are present. Stop for approval.</pre>
-
-<h3>④ Publisher</h3>
-<pre>You are the Publisher. Only act on approved copy with #ad + link present.
-Publish on TWO SEPARATE RAILS — they do not share a tool:
-  • INSTAGRAM rail: schedule via Postiz with the IG caption + "link in bio".
-  • TIKTOK rail:   publish via Higgsfield (tiktok_connect / tiktok_publish),
-                   OR export the clip for manual upload.
-  ⚠ Postiz CANNOT post to TikTok. Never send a TikTok post through Postiz.
-Default to SCHEDULE, then wait for the final human go. Never post without it.</pre>
-
-<h3>⑤ Analyst</h3>
-<pre>You are the Analyst. After posts are live, collect Views, Likes, Link Clicks,
-and any conversions (note when a number is a manual estimate). Flag the top
-performers and weakest angles, and recommend what the next Researcher cycle
-should focus on. Be honest about small sample sizes.</pre>
-</div>
-
-<div class="section page-break">
-<h2>Publishing = two separate rails</h2>
-<div class="gate" style="background:#fff4f7;border-left:3px solid #d23b6b;">
-<b>⚠ Read this before you connect anything.</b> Instagram and TikTok publish through
-<b>different tools</b>. There is no single "post to both" button.</div>
-<table>
-<tr><th>Rail</th><th>Tool</th><th>How the link works</th><th>Setup</th></tr>
-<tr><td><b>Instagram</b></td><td>Postiz (schedule/auto-post)</td><td>Caption links aren't clickable → use <b>"link in bio"</b></td><td>Connect IG in Postiz</td></tr>
-<tr><td><b>TikTok</b></td><td><b>Higgsfield only</b> (<code>tiktok_connect</code> → <code>tiktok_publish</code>), or manual upload</td><td>Affiliate link can go in the post</td><td>Connect TikTok in Higgsfield</td></tr>
-</table>
-<p><small><b>Why:</b> Postiz does not support TikTok publishing on this stack. TikTok
-goes through Higgsfield's native TikTok tools, or you export the finished clip and
-upload it by hand. Treat them as two independent lanes that happen to share the
-same approved clip + copy.</small></p>
-</div>
-
-<div class="section">
-<h2>Your control panel (the tracker)</h2>
-<p>One row per product. These are the columns and the status flow that make the
-gates real:</p>
-<p><span class="pill">Proposed</span> → <span class="pill">Approved</span> →
-<span class="pill">Clip Ready</span> → <span class="pill">Clip Approved</span> →
-<span class="pill">Copy Ready</span> → <span class="pill">Copy Approved</span> →
-<span class="pill">Scheduled</span> → <span class="pill">Posted</span></p>
-<p><small>Core columns: Product Name, Status, Category, Why Trending, Affiliate Link,
-Product Image, Clip URL, Hook, Caption, IG Short Copy, Hashtags, #ad OK, Target
-Platforms, Scheduled Time, Views, Clicks. (Full schema included with the kit.)</small></p>
-</div>
-
-<div class="section">
-<h2>3 plug-and-play IG viral scripts</h2>
-<h3>1 · "3 things I stopped doing"</h3>
-<p><b>Hook:</b> "3 things I stopped doing that fixed my 2pm energy crash 👇" —
-list 3 swaps, product is #2, honest payoff. <b>Caption ends:</b> grab it 👉 [link] #ad</p>
-<h3>2 · "GRWM routine"</h3>
-<p><b>Hook:</b> "GRWM but it's my 5-minute morning wellness routine that actually
-stuck ✨" — product is step one, show the month-later result. <b>CTA:</b> "Save this 📌" + link in bio.</p>
-<h3>3 · "TikTok made me buy it"</h3>
-<p><b>Hook:</b> "Okay the internet was right about this one… 👀" — demo the #1 use,
-name the objection, show daily use, drop the price. <b>Caption ends:</b> here if you want it 👉 [link] #ad</p>
-</div>
-
-<div class="section">
-<h2>Setup checklist</h2>
-<ul>
-<li>☐ Set up the tracker (template columns above)</li>
-<li>☐ Connect <b>Instagram in Postiz</b> (IG rail)</li>
-<li>☐ Connect <b>TikTok in Higgsfield</b> — <u>not</u> Postiz (TikTok rail), or plan to upload manually</li>
-<li>☐ Have your affiliate links ready (Amazon Associates / TikTok Shop / brand programs)</li>
-<li>☐ Run Researcher → Scout, approve 3 products (Gate 1)</li>
-<li>☐ Make clips → approve (Gate 2) → write copy → approve (Gate 3)</li>
-<li>☐ Schedule → final go (Gate 4) → live</li>
-</ul>
-</div>
-
-<div class="section">
-<h2>How to deploy it (3 waves + the weekly loop)</h2>
-<p><b>Wave 1 — Prove it (day 1).</b> Run one product all the way through by hand:
-Researcher → Scout → pick 1 → clip → copy → post to <i>one</i> rail. Confirm the
-loop works before scaling.</p>
-<p><b>Wave 2 — Batch it (week 1).</b> Run 3 products per cycle. Both rails. Keep
-all 4 gates. This is where you find your voice + winning formats.</p>
-<p><b>Wave 3 — Systematize (week 2+).</b> Schedule the Researcher weekly, post
-1×/day/account, let the Analyst tell you what to repeat.</p>
-<div class="flow">THE WEEKLY LOOP
-  Researcher (trends) → Scout (3 picks) → you approve → clips → you approve
-    → copy → you approve → schedule → you approve → LIVE
-    → Analyst reads results → feeds next week's Researcher → repeat</div>
-<p><small><b>Feedback loop:</b> the Analyst's winners become next week's Researcher
-brief. Double down on the categories + hooks that held retention past 3 seconds;
-kill the rest. The system compounds — each cycle is sharper than the last.</small></p>
+<h2>Part 5 — The weekly loop</h2>
+<div class="flow">ONE SESSION / WEEK: research → create a batch → caption all at once → approve → schedule the week
+   → it publishes itself → check results → next week's research repeats it</div>
+<p><small>Batch by task (all research, then all creation, then all captions) — far
+faster than doing one post start-to-finish seven times.</small></p>
 </div>
 
 <div class="section">
 <h2>The one rule that keeps you safe</h2>
-<p><b>Every post carries #ad</b> (or a clear affiliate disclosure), and you never
-state or imply a product "cures," "guarantees," or "treats" anything. Use "may
-support" and personal-experience framing. This keeps you inside FTC + platform rules.</p>
+<p><b>Every post with an affiliate link carries a clear disclosure (<code>#ad</code>
+or equivalent), near the top — not buried.</b> It's FTC-required in the US and
+costs you nothing in trust. Never promise guaranteed results or income.</p>
 </div>
 
-<div class="foot">Reel Engine — The Stack Blueprint · You may use this system for your own brand and clients. Do not resell this document as-is.</div>
+<div class="foot">The Content Automation System — brand this as your own. Set up once, run any account through it.</div>
 
 </body>
 </html>
